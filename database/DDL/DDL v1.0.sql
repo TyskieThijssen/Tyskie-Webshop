@@ -11,7 +11,8 @@ CREATE DATABASE TyskieWebshop
 GO
 
 CREATE TABLE test (
-	Name		VARCHAR(50),
-	Password	VARCHAR(50)
+	userName	VARCHAR(50),
+	password	VARCHAR(50),
+	salt		char(16)
 )
 GO
