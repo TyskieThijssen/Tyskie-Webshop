@@ -25,7 +25,6 @@ GO
 CREATE TABLE Winkelmandje (
 	afrekenCode		VARCHAR(10)		NOT NULL,
 	gebruikersnaam	VARCHAR(50)		NOT NULL,
-	totaalprijs		INT				NOT NULL,
 	CONSTRAINT PK_Winkelmandje PRIMARY KEY (afrekenCode)
 )
 GO
