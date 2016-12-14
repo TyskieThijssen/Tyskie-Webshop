@@ -42,6 +42,7 @@ CREATE TABLE Product (
 	productCode		VARCHAR(10)		NOT NULL,
 	productNaam		VARCHAR(50)		NOT NULL,
 	productPrijs	INT				NOT NULL,
+	beschrijving	VARCHAR(500)	NOT NULL,
 	CONSTRAINT PK_Product PRIMARY KEY (productCode)
 )
 GO
