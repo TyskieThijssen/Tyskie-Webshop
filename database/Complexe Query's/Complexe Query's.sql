@@ -5,3 +5,5 @@ FROM ProductInWinkelmandje pw INNER JOIN Winkelmandje w ON w.afrekenCode = pw.af
 GROUP BY w.afrekenCode
 HAVING w.afrekenCode = 'ORDER 001'
 
+SELECT *
+FROM Product
