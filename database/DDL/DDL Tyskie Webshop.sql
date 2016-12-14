@@ -13,7 +13,6 @@ GO
 
 CREATE TABLE Account (
 	gebruikersnaam	VARCHAR(50)		NOT NULL,
-	afrekenCode		VARCHAR(10)		NULL,
 	email			VARCHAR(50)		NOT NULL,
 	wachtwoord		CHAR(128)		NOT NULL,
 	salt			CHAR(128)		NOT NULL,
@@ -52,10 +51,6 @@ CREATE TABLE Voorraad (
 	aantalVoorraad	INT				NOT NULL,
 	CONSTRAINT PK_Voorraad PRIMARY KEY (productCode)
 )
-GO
-
-ALTER TABLE Account
-ADD CONSTRAINT FK_Account_Winkelmandje FOREIGN KEY (afrekenCode) REFERENCES Winkelmandje(afrekenCode)
 GO
 
 ALTER TABLE Winkelmandje
