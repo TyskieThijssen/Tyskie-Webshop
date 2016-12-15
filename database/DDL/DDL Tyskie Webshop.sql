@@ -42,6 +42,7 @@ CREATE TABLE Product (
 	productNaam		VARCHAR(50)		NOT NULL,
 	productPrijs	INT				NOT NULL,
 	beschrijving	VARCHAR(500)	NOT NULL,
+	categorieNaam	VARCHAR(50)		NOT NULL,
 	CONSTRAINT PK_Product PRIMARY KEY (productCode)
 )
 GO
@@ -50,6 +51,14 @@ CREATE TABLE Voorraad (
 	productCode		VARCHAR(10)		NOT NULL,
 	aantalVoorraad	INT				NOT NULL,
 	CONSTRAINT PK_Voorraad PRIMARY KEY (productCode)
+)
+GO
+
+CREATE TABLE Categorie (
+	categorieNaam			VARCHAR(50)		NOT NULL,
+	categorieBeschrijving	VARCHAR(500)	NOT NULL,
+	hoofdCategorie			VARCHAR(50)		NULL,
+	CONSTRAINT PK_Categorie PRIMARY KEY (categorieNaam)
 )
 GO
 
@@ -67,4 +76,8 @@ GO
 
 ALTER TABLE Voorraad
 ADD CONSTRAINT FK_Voorraad_Product FOREIGN KEY (productCode) REFERENCES Product(productCode)
+GO
+
+ALTER TABLE Product
+ADD CONSTRAINT FK_Product_Categorie FOREIGN KEY (categorieNaam) REFERENCES Categorie(categorieNaam)
 GO

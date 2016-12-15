@@ -6,7 +6,8 @@ CREATE PROCEDURE spd_updateProduct
 	@productCode	VARCHAR(10),
 	@productNaam	VARCHAR(50),
 	@productPrijs	INT,
-	@beschrijving	VARCHAR(500)
+	@beschrijving	VARCHAR(500),
+	@categorieNaam	VARCHAR(50)
 AS
 	SET NOCOUNT, XACT_ABORT ON
 	DECLARE @TranCounter INT;
@@ -17,7 +18,7 @@ AS
 		BEGIN TRANSACTION;
 BEGIN TRY
 		UPDATE Product
-		SET productNaam = @productNaam, productPrijs = @productPrijs, beschrijving = @beschrijving
+		SET productNaam = @productNaam, productPrijs = @productPrijs, beschrijving = @beschrijving, categorieNaam = @categorieNaam
 		WHERE productCode = @productCode
 		IF @TranCounter = 0 AND XACT_STATE() = 1
 			COMMIT TRANSACTION;

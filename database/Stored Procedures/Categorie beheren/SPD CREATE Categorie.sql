@@ -1,13 +1,11 @@
 USE TyskieWebshop
 GO
 
-/* Stored Procedure CREATE Product Beheren */
-CREATE PROCEDURE spd_createProduct
-	@productCode	VARCHAR(10),
-	@productNaam	VARCHAR(50),
-	@productPrijs	INT,
-	@beschrijving	VARCHAR(500),
-	@categorieNaam	VARCHAR(50)
+/* Stored Procedure CREATE Categorie Beheren */
+CREATE PROCEDURE spd_createCategorie
+	@categorieNaam			VARCHAR(50),
+	@categorieBeschrijving	VARCHAR(500),
+	@hoofdCategorie			VARCHAR(50)
 AS
 	SET NOCOUNT, XACT_ABORT ON
 	DECLARE @TranCounter INT;
@@ -17,7 +15,7 @@ AS
 	ELSE
 		BEGIN TRANSACTION;
 BEGIN TRY
-		INSERT INTO Product VALUES (@productCode, @productNaam, @productPrijs, @beschrijving, @categorieNaam)
+		INSERT INTO Categorie VALUES (@categorieNaam, @categorieBeschrijving, @hoofdCategorie)
 		IF @TranCounter = 0 AND XACT_STATE() = 1
 			COMMIT TRANSACTION;
 END TRY
